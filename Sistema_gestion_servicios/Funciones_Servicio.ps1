@@ -11,7 +11,7 @@ function Menu-Servicios {
     Write-Host "6. Controlar servicio (iniciar/detener)"
     Write-Host "0. Volver"
 
-    $op = Read-Host "Seleccione una opción"
+    $op = Read-Host "Seleccione una opcion"
     switch($op){
         "1" { Listar-Servicios; Pause; Menu-Servicios }
         "2" { Agregar-Servicio-Seguimiento; Pause; Menu-Servicios }
