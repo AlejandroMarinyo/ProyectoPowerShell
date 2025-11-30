@@ -42,7 +42,7 @@ function Agregar-Servicio-Seguimiento {
         PID = (Get-Process -Name $srv.Name -ErrorAction SilentlyContinue).Id
     }
     $obj | Export-Csv $ServiciosCSV -Append -NoTypeInformation
-    Write-Host "Servicio añadido a seguimiento."
+    Write-Host "Servicio agregado a seguimiento."
 }
 
 function Editar-Servicio {
