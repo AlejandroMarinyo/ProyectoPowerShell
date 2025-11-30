@@ -10,14 +10,14 @@ function Main-Menu {
     Write-Host "===============================" -ForegroundColor Cyan
     Write-Host "     SISTEMA ADMINISTRATIVO    " -ForegroundColor Cyan
     Write-Host "===============================" -ForegroundColor Cyan
-    Write-Host "1. Gestión de Servicios"
+    Write-Host "1. Gestion de Servicios"
     Write-Host "2. Monitoreo del Sistema"
     Write-Host "3. Copias de Seguridad"
     Write-Host "4. Logs"
-    Write-Host "5. Configuración"
+    Write-Host "5. Configuracion"
     Write-Host "0. Salir"
 
-    $op = Read-Host "Seleccione una opción"
+    $op = Read-Host "Seleccione una opcion"
 
     switch ($op) {
         "1" { Menu-Servicios }
