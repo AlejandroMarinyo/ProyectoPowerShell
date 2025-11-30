@@ -75,6 +75,7 @@ function Eliminar-Servicio {
 function Buscar-Servicio {
     $texto = Read-Host "Buscar por texto"
     Get-Service | Where-Object {
+        $_.Status -like "*$texto*" -or
         $_.Name -like "*$texto*" -or
         $_.DisplayName -like "*$texto*"
     } | Format-Table
