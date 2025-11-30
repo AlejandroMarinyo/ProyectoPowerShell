@@ -2,7 +2,7 @@ $ServiciosCSV = "Servicios-Seguimiento.csv"
 
 function Menu-Servicios {
     Clear-Host
-    Write-Host "====== GESTIÓN DE SERVICIOS ======"
+    Write-Host "====== GESTION DE SERVICIOS ======"
     Write-Host "1. Listar servicios del sistema"
     Write-Host "2. Agregar servicio a seguimiento"
     Write-Host "3. Editar servicio"
