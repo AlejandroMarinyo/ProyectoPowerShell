@@ -1,4 +1,4 @@
-# Carga de módulos
+# Carga de modulos
 . ./Funciones_Servicio.ps1
 . ./Monitoreo_Sistema.ps1
 . ./Backup.ps1
