@@ -3,11 +3,11 @@ function Menu-Monitor {
     Write-Host "===== MONITOREO DEL SISTEMA ====="
     Write-Host "1. Estado de servicios en seguimiento"
     Write-Host "2. Uso de recursos del sistema"
-    Write-Host "3. Procesos más consumidores"
+    Write-Host "3. Procesos mas consumidores"
     Write-Host "4. Ver logs de eventos"
     Write-Host "0. Volver"
 
-    $op = Read-Host "Seleccione una opción"
+    $op = Read-Host "Seleccione una opcion"
     switch($op){
         "1" { Estado-Servicios; Pause; Menu-Monitor }
         "2" { Uso-Recursos; Pause; Menu-Monitor }
