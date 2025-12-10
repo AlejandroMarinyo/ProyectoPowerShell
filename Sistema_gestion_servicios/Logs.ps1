@@ -3,7 +3,7 @@ $RutaLogs = $cfg | Where-Object { $_.Clave -eq "RutaLogs" } | Select -Expand Val
 
 function Menu-Logs {
     Clear-Host
-    Write-Host "===== GESTIÓN DE LOGS ====="
+    Write-Host "===== GESTION DE LOGS ====="
     Write-Host "1. Ver log del sistema"
     Write-Host "2. Ver log de errores"
     Write-Host "0. Volver"
