@@ -23,17 +23,31 @@ function Estado-Servicios {
         Get-Service -Name $_.Nombre | Format-Table
     }
 }
-
 function Uso-Recursos {
-    Write-Host "Memoria:"
-    Get-CimInstance Win32_OperatingSystem | Select FreePhysicalMemory, TotalVisibleMemorySize
 
-    Write-Host "`nDiscos:"
-    Get-CimInstance Win32_LogicalDisk | Select DeviceID, FreeSpace, Size
+    Write-Host "=== MEMORIA ==="
+    Get-CimInstance Win32_OperatingSystem |
+        Select @{Name="Libre (GB)";Expression={[math]::Round($_.FreePhysicalMemory/1024/1024,2)}},
+               @{Name="Total (GB)";Expression={[math]::Round($_.TotalVisibleMemorySize/1024/1024,2)}} |
+        Format-Table | Out-Host
 
-    Write-Host "`nCPU (procesos):"
-    Get-Process | Select Name, CPU | Sort CPU -Descending | Select -First 10
+    Write-Host "`n=== DISCOS ==="
+    Get-CimInstance Win32_LogicalDisk |
+        Where-Object { $_.DriveType -eq 3 } |  # Solo discos duros
+        Select DeviceID,
+               @{Name="Libre (GB)";Expression={[math]::Round($_.FreeSpace/1GB,2)}},
+               @{Name="Total (GB)";Expression={[math]::Round($_.Size/1GB,2)}} |
+        Format-Table | Out-Host
+
+    Write-Host "`n=== CPU (TOP 10 procesos) ==="
+    Get-Process |
+        Sort-Object CPU -Descending |
+        Select -First 10 Name, CPU |
+        Format-Table | Out-Host
 }
+
+
+
 
 function Procesos-Altos {
     Get-Process | Sort CPU -Descending | Select -First 20 | Format-Table
