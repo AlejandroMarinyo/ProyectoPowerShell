@@ -59,8 +59,6 @@ function Crear-Backup {
 
     Compress-Archive -Path $archivo -DestinationPath "$RutaBackups\$nombre" -Force
     Write-Host "Backup creado: $nombre"
-    } catch {
-        Write-Log "Error al crear backup: $_" "ERROR"
     }
 }
 
