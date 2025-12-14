@@ -25,7 +25,7 @@ $RutaBackups = $cfg | Where-Object { $_.Clave -eq "RutaBackups" } | Select-Objec
 # ================== MENU ==================
 function Menu-Backup {
     Write-Log "Acceso al menu Backup"
-    Clear-Host
+    Clear-Host 
     Write-Host "===== SISTEMA DE BACKUPS ====="
     Write-Host "1. Crear backup"
     Write-Host "2. Restaurar backup"
@@ -47,11 +47,12 @@ function Menu-Backup {
 }
 
 function Crear-Backup {
-    try {
-        $archivo = "Configuracion.csv"
+        $archivo = "Servicios-Seguimiento.csv"
 
     if (-not (Test-Path $archivo)) {
-        throw "Error: No se puede crear el backup porque el archivo '$archivo' no existe."
+        Write-Host "Error: No se puede crear el backup porque el archivo '$archivo' no existe." -ForegroundColor Red
+	Write-Log "No se pudo crear el backup: archivo no existe" "ERROR"
+	return
     }
 
     $fecha = Get-Date -Format "yyyyMMdd"
@@ -60,7 +61,6 @@ function Crear-Backup {
     Compress-Archive -Path $archivo -DestinationPath "$RutaBackups\$nombre" -Force
     Write-Host "Backup creado: $nombre"
     }
-}
 
 function Restaurar-Backup {
     Listar-Backups
