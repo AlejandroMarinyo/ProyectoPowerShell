@@ -22,9 +22,16 @@ function Menu-Backup {
 }
 
 function Crear-Backup {
+    $archivo = "Configuracion.csv"
+
+    if (-not (Test-Path $archivo)) {
+        throw "Error: No se puede crear el backup porque el archivo '$archivo' no existe."
+    }
+
     $fecha = Get-Date -Format "yyyyMMdd"
-    $nombre = "backup_servicios_$fecha.zip"
-    Compress-Archive -Path "Servicios-Seguimiento.csv" -DestinationPath "$RutaBackups\$nombre" -Force
+    $nombre = "${fecha}_backup_servicios.zip"
+
+    Compress-Archive -Path $archivo -DestinationPath "$RutaBackups\$nombre" -Force
     Write-Host "Backup creado: $nombre"
 }
 
