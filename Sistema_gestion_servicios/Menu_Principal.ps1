@@ -2,7 +2,6 @@
 . ./Funciones_Servicio.ps1
 . ./Monitoreo_Sistema.ps1
 . ./Backup.ps1
-. ./Logs.ps1
 
 function Main-Menu {
     Clear-Host
@@ -12,8 +11,7 @@ function Main-Menu {
     Write-Host "1. Gestion de Servicios"
     Write-Host "2. Monitoreo del Sistema"
     Write-Host "3. Copias de Seguridad"
-    Write-Host "4. Logs"
-    Write-Host "5. Ver la Configuracion"
+    Write-Host "4. Ver la Configuracion"
     Write-Host "0. Salir"
 
     $op = Read-Host "Seleccione una opcion"
@@ -22,8 +20,7 @@ function Main-Menu {
         "1" { Menu-Servicios }
         "2" { Menu-Monitor }
         "3" { Menu-Backup }
-        "4" { Menu-Logs }
-        "5" { Ver-Configuracion }
+        "4" { Ver-Configuracion }
         "0" { exit }
         default { Main-Menu }
     }
