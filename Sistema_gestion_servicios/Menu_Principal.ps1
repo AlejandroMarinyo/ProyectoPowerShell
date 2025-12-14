@@ -12,6 +12,7 @@ function Main-Menu {
     Write-Host "2. Monitoreo del Sistema"
     Write-Host "3. Copias de Seguridad"
     Write-Host "4. Ver la Configuracion"
+    Write-Host "5. Ver logs"
     Write-Host "0. Salir"
 
     $op = Read-Host "Seleccione una opcion"
@@ -21,6 +22,7 @@ function Main-Menu {
         "2" { Menu-Monitor }
         "3" { Menu-Backup }
         "4" { Ver-Configuracion }
+        "5" { Ver-Logs }
         "0" { exit }
         default { Main-Menu }
     }
@@ -34,6 +36,22 @@ function Ver-Configuracion {
         Get-Content "Configuracion.csv"
     } else {
         Write-Host "El archivo Configuracion.csv no existe."
+    }
+
+    Pause
+    Main-Menu
+}
+
+Main-Menu
+
+function Ver-Logs {
+    Clear-Host
+    Write-Host "===== LOGS =====`n"
+
+    if(Test-Path "logs/Backup.log"){
+        Get-Content "logs/Backup.log"
+    } else {
+        Write-Host "El archivo de logs no existe."
     }
 
     Pause
