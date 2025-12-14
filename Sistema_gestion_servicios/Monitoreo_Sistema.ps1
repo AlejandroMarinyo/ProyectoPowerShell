@@ -75,3 +75,4 @@ function Procesos-Altos {
     Write-Log "Listado de procesos de alto consumo"
     Get-Process | Sort-Object CPU -Descending | Select -First 20 | Format-Table
 }
+
