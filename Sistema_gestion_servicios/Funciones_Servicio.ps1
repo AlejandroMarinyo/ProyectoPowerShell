@@ -147,3 +147,4 @@ function Controlar-Servicio {
         "3" { Restart-Service $nombre; Write-Log "Servicio reiniciado: $nombre"; Write-Host "Reiniciado." }
     }
 }
+
