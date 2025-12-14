@@ -1,6 +1,6 @@
-# ================== CONFIGURACIÓN LOG ==================
+# ================== CONFIGURACION LOG ==================
 $ScriptPath = Split-Path -Parent $MyInvocation.MyCommand.Path
-$LogFile = Join-Path $ScriptPath "Funciones_Servicio.log"
+$LogFile = Join-Path $ScriptPath "/logs/Funciones_Servicio.log"
 
 function Write-Log {
     param(
@@ -27,7 +27,6 @@ function Menu-Servicios {
     Write-Host "4. Eliminar servicio de seguimiento"
     Write-Host "5. Buscar servicio"
     Write-Host "6. Controlar servicio (iniciar/detener)"
-    Write-host "7. Logs"
     Write-Host "0. Volver"
 
     $op = Read-Host "Seleccione una opcion"
@@ -40,7 +39,6 @@ function Menu-Servicios {
         "4" { Eliminar-Servicio; Pause; Menu-Servicios }
         "5" { Buscar-Servicio; Pause; Menu-Servicios }
         "6" { Controlar-Servicio; Pause; Menu-Servicios }
-        "7" { Ver-Logs; Pause; Menu-Servicios }
         "0" { Write-Log "Salida al menu principal"; Main-Menu }
         default { Menu-Servicios }
     }
@@ -115,7 +113,7 @@ function Eliminar-Servicio {
 
 function Buscar-Servicio {
     $texto = Read-Host "Buscar por texto"
-    Write-Log "Búsqueda de servicios con texto: $texto"
+    Write-Log "Busqueda de servicios con texto: $texto"
 
     Get-Service | Where-Object {
         $_.Status -like "*$texto*" -or
@@ -141,7 +139,7 @@ function Controlar-Servicio {
     Write-Host "3. Reiniciar"
 
     $op = Read-Host "Seleccione"
-    Write-Log "Acción seleccionada ($op) para servicio $nombre"
+    Write-Log "Accion seleccionada ($op) para servicio $nombre"
 
     switch($op){
         "1" { Start-Service $nombre; Write-Log "Servicio iniciado: $nombre"; Write-Host "Iniciado." }
@@ -149,20 +147,3 @@ function Controlar-Servicio {
         "3" { Restart-Service $nombre; Write-Log "Servicio reiniciado: $nombre"; Write-Host "Reiniciado." }
     }
 }
-
-function Ver-Logs {
-    Clear-Host
-    Write-Host "====== LOG DEL SCRIPT ======" -ForegroundColor Cyan
-
-    if (!(Test-Path $LogFile)) {
-        Write-Host "No existe archivo de log." -ForegroundColor Yellow
-        return
-    }
-
-    Get-Content $LogFile
-
-    Write-Host "`n--- Fin del log ---"
-}
-
-
-Write-Log "Script finalizado"
