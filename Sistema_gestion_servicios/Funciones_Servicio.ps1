@@ -18,7 +18,7 @@ $ServiciosCSV = "Servicios-Seguimiento.csv"
 
 # ================== FUNCIONES ==================
 function Menu-Servicios {
-    Write-Log "Acceso al menú de servicios"
+    Write-Log "Acceso al menu de servicios"
     Clear-Host
     Write-Host "====== GESTION DE SERVICIOS ======"
     Write-Host "1. Listar servicios del sistema"
@@ -31,7 +31,7 @@ function Menu-Servicios {
     Write-Host "0. Volver"
 
     $op = Read-Host "Seleccione una opcion"
-    Write-Log "Opción seleccionada: $op"
+    Write-Log "Opcion seleccionada: $op"
 
     switch($op){
         "1" { Listar-Servicios; Pause; Menu-Servicios }
@@ -41,7 +41,7 @@ function Menu-Servicios {
         "5" { Buscar-Servicio; Pause; Menu-Servicios }
         "6" { Controlar-Servicio; Pause; Menu-Servicios }
         "7" { Ver-Logs; Pause; Menu-Servicios }
-        "0" { Write-Log "Salida al menú principal"; Main-Menu }
+        "0" { Write-Log "Salida al menu principal"; Main-Menu }
         default { Menu-Servicios }
     }
 }
@@ -78,14 +78,14 @@ function Agregar-Servicio-Seguimiento {
 
 function Editar-Servicio {
     $nombre = Read-Host "Nombre del servicio a editar"
-    Write-Log "Edición de servicio: $nombre"
+    Write-Log "Edicion de servicio: $nombre"
 
     $data = Import-Csv $ServiciosCSV
     $item = $data | Where-Object { $_.Nombre -eq $nombre }
 
     if(!$item){
         Write-Host "No existe en seguimiento."
-        Write-Log "Servicio no encontrado para edición: $nombre" "ERROR"
+        Write-Log "Servicio no encontrado para edicion: $nombre" "ERROR"
         return
     }
 
@@ -104,7 +104,7 @@ function Editar-Servicio {
 
 function Eliminar-Servicio {
     $nombre = Read-Host "Nombre del servicio a eliminar"
-    Write-Log "Eliminación de servicio: $nombre"
+    Write-Log "Eliminacion de servicio: $nombre"
 
     Import-Csv $ServiciosCSV |
         Where-Object { $_.Nombre -ne $nombre } |
