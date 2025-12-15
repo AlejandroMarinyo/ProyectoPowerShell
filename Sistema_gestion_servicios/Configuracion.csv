@@ -1,6 +1,2 @@
 Clave,Valor
-RutaLogs,logs
 RutaBackups,backups
-NivelLog,INFO
-MaxBackups,10
-DirectorioServicios,Servicios_Seguimiento.csv
