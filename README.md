@@ -51,5 +51,6 @@ La configuración se gestiona desde el archivo `Configuracion.csv`:
 
 1. Asegúrate de ejecutar PowerShell con permisos adecuados.
 2. Ejecuta el script principal:
+   
    ```powershell
-   .\Menu-.ps1
+   .\Menu_Principal.ps1
