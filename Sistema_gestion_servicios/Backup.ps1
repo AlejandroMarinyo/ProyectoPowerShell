@@ -16,7 +16,7 @@ function Write-Log {
     Add-Content -Path $LogFile -Value "$fecha [$Nivel] $Mensaje"
 }
 
-Write-Log "Modulo Backup cargado"
+Write-Log "Logs Cargados"
 
 # ================== CONFIGURACION ==================
 $cfg = Import-Csv "Configuracion.csv"
