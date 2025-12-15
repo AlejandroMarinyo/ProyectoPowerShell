@@ -8,7 +8,7 @@ Este proyecto implementa un **sistema administrativo modular en PowerShell** que
 
 
 Sistema-Administrativo-PowerShell
-- Main.ps1
+- Menu_Principal.ps1
 - Funciones_Servicio.ps1
 - Monitoreo_Sistema.ps1
 - Backup.ps1
@@ -37,14 +37,14 @@ Sistema-Administrativo-PowerShell
 - Estado de servicios en seguimiento
 - Uso de memoria, disco y CPU
 - Procesos con mayor consumo de recursos
-- - Registro de acciones en logs
+- Registro de acciones en logs
 
 ### 💾 Copias de Seguridad
 - Crear backups del archivo de servicios en seguimiento
 - Restaurar backups
 - Listar y eliminar backups
 - Backups comprimidos en formato `.zip`
-- - Registro de acciones en logs
+- Registro de acciones en logs
 
 ---
 
