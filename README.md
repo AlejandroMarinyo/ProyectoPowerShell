@@ -22,12 +22,14 @@ Este proyecto implementa un **sistema administrativo modular en PowerShell** que
 - Estado de servicios en seguimiento
 - Uso de memoria, disco y CPU
 - Procesos con mayor consumo de recursos
+- - Registro de acciones en logs
 
 ### 💾 Copias de Seguridad
 - Crear backups del archivo de servicios en seguimiento
 - Restaurar backups
 - Listar y eliminar backups
 - Backups comprimidos en formato `.zip`
+- - Registro de acciones en logs
 
 ---
 
@@ -50,4 +52,4 @@ La configuración se gestiona desde el archivo `Configuracion.csv`:
 1. Asegúrate de ejecutar PowerShell con permisos adecuados.
 2. Ejecuta el script principal:
    ```powershell
-   .\Main.ps1
+   .\Menu-.ps1
