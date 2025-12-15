@@ -6,6 +6,23 @@ Este proyecto implementa un **sistema administrativo modular en PowerShell** que
 
 ## 📂 Estructura del Proyecto
 
+Sistema-Administrativo-PowerShell
+│
+├── Menu_Principal.ps1
+├── Funciones_Servicio.ps1
+├── Monitoreo_Sistema.ps1
+├── Backup.ps1
+├── Configuracion.csv
+├── Servicios-Seguimiento.csv
+│
+├── logs
+│   ├── Funciones_Servicio.log
+│   ├── Monitoreo_Sistema.log
+│   └── Backup.log
+│
+└── backups
+    └── 20240101_backup_servicios.zip
+
 
 ---
 
