@@ -54,11 +54,7 @@ La configuración se gestiona desde el archivo `Configuracion.csv`:
 
 | Clave                  | Valor                         |
 |------------------------|-------------------------------|
-| RutaLogs               | logs                          |
 | RutaBackups            | backups                       |
-| NivelLog               | INFO                          |
-| MaxBackups             | 10                            |
-| DirectorioServicios    | Servicios-Seguimiento.csv     |
 
 ---
 
