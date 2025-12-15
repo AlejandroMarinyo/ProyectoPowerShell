@@ -67,14 +67,25 @@ function Restaurar-Backup {
     $nombre = Read-Host "Introduce nombre del backup"
     Write-Log "Intento de restaurar backup: $nombre"
 
+    $rutaBackup = Join-Path $RutaBackups $nombre
+
+    
+    if (-not (Test-Path $rutaBackup)) {
+        Write-Host "Error: el nombre del backup no coincide o no existe." -ForegroundColor Red
+        Write-Log "Backup no encontrado: $nombre" "ERROR"
+        return
+    }
+
     try {
-        Expand-Archive "$RutaBackups\$nombre" -DestinationPath "." -Force
-        Write-Host "Backup restaurado."
-        Write-Log "Backup restaurado correctamente"
+        Expand-Archive -Path $rutaBackup -DestinationPath "." -Force
+        Write-Host "Backup restaurado correctamente."
+        Write-Log "Backup restaurado correctamente: $nombre"
     } catch {
+        Write-Host "Error al restaurar el backup." -ForegroundColor Red
         Write-Log "Error al restaurar backup: $_" "ERROR"
     }
 }
+
 
 function Listar-Backups {
     Write-Log "Listado de backups"
